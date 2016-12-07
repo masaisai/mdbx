@@ -490,7 +490,7 @@
 						<span>同意<a href="#">《多边形论坛服务条款》</a></span>
 					</div>
 					
-					<input type="submit" value="注册" class="submit" id="submit-email" />
+					<input type="button" value="注册" class="submit" id="submit-email" />
 					<p class="reg-note">已有账号，现在<a href="#" class="reglogBtn">登陆</a></p>
 				</form>
 				</div>

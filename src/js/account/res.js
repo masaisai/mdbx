@@ -13,19 +13,25 @@ $(function(){
 		data.password=$("#password").val();
 		//data=[data];
 		data="data="+JSON.stringify(data);
-		
+		alert(data)
 		$.ajax({
 			type:"post",
-			url:"./include/register.php",
+			url:"../include/register.php",
 			async:true,
 			datatype:'json',
 			data:data,
 			success:function(data,status){
 				if(status=="success"){
 					alert("注册成功！");
+					//document.write(data)
 				}
 			},
 			error:function(jqXHR, textStatus, errorThrown){
+				//alert(jqXHR)
+				//alert(jqXHR.status)
+				//alert(jqXHR.readyState)
+				//alert(textStatus);
+				//alert(errorThrown)
 			}
 		});
 	}

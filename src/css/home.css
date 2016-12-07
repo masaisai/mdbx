@@ -52,6 +52,7 @@
 .lastNews .bd ul li{width: 320px; height: 46px; margin-bottom: 10px;}
 .lastNews .bd ul li dl dt{line-height: 20px; font-size: 14px;}
 .lastNews .bd ul li dl dt a{color: #000000;}
+.lastNews .bd ul li dl dt a:hover{color: #E62E33; text-decoration: underline;}
 .lastNews .bd ul li dl dd{height: 26px;}
 .lastNews .bd ol li{height:26px; float: left; line-height: 26px; font-size: 12px; color: #808080;}
 .lastNews .bd ol li span{display:inline-block; width: 24px; height: 26px;  float: left; }
@@ -76,6 +77,7 @@
 .translation .con ul li dl dt span{display: inline-block; width: 30px; height: 20px;}
 .translation .con ul li dl dt span img{display: inline-block; width: 30px; height: 20px;}
 .translation .con ul li dl dt a{color: #000000; font-size: 14px; padding-left: 6px;}
+.translation .con ul li dl dt a:hover{color: #E62E33; text-decoration: underline;}
 .translation .con ul li dl dd{height: 26px;}
 .translation .con ol li{height:26px; float: left; line-height: 26px; font-size: 12px; color: #808080;}
 .translation .con ol li span{display:inline-block; width: 24px; height: 26px;  float: left; }
@@ -94,6 +96,7 @@
 .photoWorld .con ul li dl{} 
 .photoWorld .con ul li dl dt{height: 40px; margin-bottom: 10px; line-height: 20px;} 
 .photoWorld .con ul li dl dt a{color: black;} 
+.photoWorld .con ul li dl dt a:hover{color: #E62E33; text-decoration: underline;}
 .photoWorld .con ul li dl dd{height: 30px;}
 .photoWorld .con ul li dl dd ol li{height:26px; float: left; line-height: 26px; font-size: 12px; color: #808080;}
 .photoWorld .con ul li dl dd ol li span{display:inline-block; width: 24px; height: 26px;  float: left; }
@@ -108,16 +111,19 @@
 .comAction{width: 320px; float: left; margin-bottom: 20px;}
 .comAction .con{}
 .comAction .con .hotAction{width: 320px; height: 84px; padding-bottom: 10px; border-bottom: 1px dotted #B2B0B0; margin-bottom: 16px;}
-.comAction .con .hotAction .img{width: 130px; height: 84px; float: left; margin-right: 10px;}
-.comAction .con .hotAction .img img{width: 130px; height: 84px;}
+.comAction .con .hotAction .img{width: 130px; height: 84px; float: left; margin-right: 10px; overflow: hidden;}
+.comAction .con .hotAction .img img{width: 130px; height: 84px; transition: 0.6s;}
+.comAction .con .hotAction .img img:hover{transform: scale(1.05,1.05);}
 .comAction .con .hotAction dl{}
 .comAction .con .hotAction dl dt{line-height: 24px; font-size: 14px;}
 .comAction .con .hotAction dl dt a{color: #000000;}
+.comAction .con .hotAction dl dt a:hover{color: #E62E33; text-decoration: underline;}
 .comAction .con .hotAction dl dd.c{color: #808080; font-size: 12px; line-height: 16px; height: 32px; overflow: hidden; margin-bottom: 6px;}
 .comAction .con .hotAction dl dd.t{color: #B2B0B0; line-height: 20px; font-size: 20px;}
 .comAction .con ul{}
 .comAction .con ul li{width: 100%; float: left; height: 28px; }
 .comAction .con ul li a{color: #000000; font-size: 14px; display: inline-block; float: left;}
+.comAction .con ul li a:hover{color: #E62E33; text-decoration: underline;}
 .comAction .con ul li span{color: #808080; font-size: 14px; display: inline-block; float: right;}
 
 .videoShare{width: 660px; height: 188px; clear: both; overflow: hidden;}

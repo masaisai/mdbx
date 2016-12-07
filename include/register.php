@@ -1,5 +1,5 @@
 <?php
-require_once("../init.php");
+require_once("common/init.php");
 //require_once("smtp.class.php");//邮件发送类
 	$data="";
 	//print_r($_POST);
