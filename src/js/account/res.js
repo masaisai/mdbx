@@ -13,7 +13,7 @@ $(function(){
 		data.password=$("#password").val();
 		//data=[data];
 		data="data="+JSON.stringify(data);
-		alert(data)
+		//alert(data)
 		$.ajax({
 			type:"post",
 			url:"../include/register.php",
@@ -22,14 +22,14 @@ $(function(){
 			data:data,
 			success:function(data,status){
 				if(status=="success"){
-					alert("注册成功！");
+					alert(data);
 					//document.write(data)
 				}
 			},
 			error:function(jqXHR, textStatus, errorThrown){
 				//alert(jqXHR)
-				//alert(jqXHR.status)
-				//alert(jqXHR.readyState)
+				//document.write(jqXHR.status)
+				//document.write(jqXHR.readyState)
 				//alert(textStatus);
 				//alert(errorThrown)
 			}

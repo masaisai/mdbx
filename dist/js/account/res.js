@@ -19,7 +19,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 		data.password = (0, _jquery2.default)("#password").val();
 		//data=[data];
 		data = "data=" + JSON.stringify(data);
-		alert(data);
+		//alert(data)
 		_jquery2.default.ajax({
 			type: "post",
 			url: "../include/register.php",
@@ -28,14 +28,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 			data: data,
 			success: function success(data, status) {
 				if (status == "success") {
-					alert("注册成功！");
+					alert(data);
 					//document.write(data)
 				}
 			},
 			error: function error(jqXHR, textStatus, errorThrown) {
 				//alert(jqXHR)
-				//alert(jqXHR.status)
-				//alert(jqXHR.readyState)
+				//document.write(jqXHR.status)
+				//document.write(jqXHR.readyState)
 				//alert(textStatus);
 				//alert(errorThrown)
 			}

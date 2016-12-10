@@ -40,7 +40,7 @@ if ($db->connect_error) {
     die("连接失败: " . $db->connect_error);
 } 
 date_default_timezone_set($timezone); //北京时间
-echo "<script>console.log('数据库连接成功！')</script>";
+//echo "<script>console.log('数据库连接成功！')</script>";
 //查询基本信息
 //$sql = "select name, title, icp, keyword, description, hotline, contact, jsHeader, javascript, rightButton from config_base where id=1";
 //$rst = $db->query($sql);
