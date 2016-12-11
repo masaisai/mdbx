@@ -8,6 +8,13 @@ require_once('class.phpmailer.php'); //载入PHPMailer类
 	//print_r($_POST);
 	$data=json_decode($_POST['data']);
 	file_put_contents('test.log', $_POST['data'], true);
+	$email = $data->email; //邮箱 
+	$query = $db->query("select id from user where email='$email'"); 
+	$row = $query->fetch_array(); 
+if($row){ 
+    echo '邮箱已被使用，请使用其他邮箱'; 
+    exit; 
+} 
 	$username = $data->username; 
 	$query = $db->query("select id from user where username='$username'"); 
 	$row = $query->fetch_array(); 
@@ -17,7 +24,7 @@ if($row){
 } 
 
 $password = md5($data->password); //加密密码 
-$email = $data->email; //邮箱 
+
 $regtime = time(); 
    
 $token = md5($username.$password.$regtime); //创建用于激活识别码 

@@ -75,4 +75,77 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 			});
 		}
 	});
+
+	/* banner */
+	var a = 0;
+	var b = 0;
+	var timer = null;
+	var aBtn = true;
+	var len = (0, _jquery2.default)(".banner .bd ul li").length;
+	(0, _jquery2.default)(".banner .bd ul li").eq(a).css("left", "0");
+	timer = setInterval(autoPlay, 5000);
+	(0, _jquery2.default)(".banner .hd ul li").hover(function () {
+
+		if (aBtn) {
+			b = (0, _jquery2.default)(this).index();
+			aBtn = false;
+			if (a > b) {
+				play("-660px", "660px");
+			} else if (a < b) {
+				play("660px", "-660px");
+			} else {
+				aBtn = true;
+				return false;
+			}
+		}
+	}, function () {});
+	(0, _jquery2.default)(".banner .prev").click(function () {
+		if (aBtn) {
+			aBtn = false;
+			b = a - 1;
+			if (b >= len) {
+				b = 0;
+			} else if (b < 0) {
+				b = len - 1;
+			}
+			play("-660px", "660px");
+		}
+	});
+	(0, _jquery2.default)(".banner .next").click(function () {
+		autoPlay();
+	});
+	function autoPlay() {
+		if (aBtn) {
+			aBtn = false;
+			b = a + 1;
+			if (b >= len) {
+				b = 0;
+			} else if (b < 0) {
+				b = len - 1;
+			}
+			play("660px", "-660px");
+		}
+	}
+	(0, _jquery2.default)(".banner .bd").hover(function () {
+		clearInterval(timer);
+	}, function () {
+		timer = setInterval(autoPlay, 5000);
+	});
+	function play(x1, x2) {
+
+		(0, _jquery2.default)(".banner .bd ul li").css("left", "-660px");
+		(0, _jquery2.default)(".banner .bd ul li").eq(a).css("left", "0px");
+		(0, _jquery2.default)(".banner .bd ul li").eq(b).css("left", x1);
+		(0, _jquery2.default)(".banner .hd ul li").eq(b).addClass("active").siblings().removeClass("active");
+		(0, _jquery2.default)(".banner .bd ul li").eq(a).animate({ "left": x2 }, 200);
+		(0, _jquery2.default)(".banner .bd ul li").eq(b).animate({ "left": "0px" }, 200, function () {
+			a = b;
+			aBtn = true;
+		});
+	}
+	/* 选项卡 */
+	(0, _jquery2.default)(".lastNews .hd ul li").click(function () {
+		(0, _jquery2.default)(this).addClass("active").siblings().removeClass("active");
+		(0, _jquery2.default)(".lastNews").find(".bd ul").eq((0, _jquery2.default)(this).index()).fadeIn().siblings().fadeOut();
+	});
 });

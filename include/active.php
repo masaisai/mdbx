@@ -13,7 +13,7 @@ if($row){
     if($nowtime>$row['token_exptime']){ //24hour 
         $msg = '您的激活有效期已过，请登录您的帐号重新发送激活邮件.'; 
     }else{
-    	 
+    	 setcookie("status", 1, time()+3600*24,"/");
         $db->query("update user set status=1 where id=".$row['id']); 
         if($db->affected_rows!=1) die(0); 
         $msg = "<script>alert('激活成功！');window.location='../views/index.php';</script>"; 

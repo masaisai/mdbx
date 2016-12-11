@@ -445,21 +445,21 @@
 				</div>
 				<div class="bd">
 					<div class="email-reg reg-action">
-					<form>
+					<form id="email-reg">
 						<label>账号：</label>
-					<input type="email" class="text" id="email" placeholder="请输入您的注册邮箱"/>
+					<input type="email" class="text" name="email" id="email" placeholder="请输入您的注册邮箱"/>
 					<label>用户名：</label>
-					<input type="text" class="text" id="username" placeholder="请输入您的注册用户名"/>
+					<input type="text" class="text" name="user" id="username" placeholder="2-10个字符,为中文、字母或数字，且只能以汉字或字母开头!"/>
 					<label>密码：</label>
-					<input type="password"  class="text" id="password" placeholder="请输入您的注册密码"/>
+					<input type="password"  class="text" name="password" id="password" placeholder="以字母开头，6-18个字符，只能包含字符、数字和下划线!"/>
 					<label>确认密码：</label>
-					<input type="password"  class="text" placeholder="请再次输入您的注册密码,确保前后输入一致"/>
+					<input type="password"  class="text" name="password1" id="password1" placeholder="请再次输入您的注册密码,确保前后输入一致"/>
 					<div class="box">
-						<input type="checkbox" />
+						<input type="checkbox" checked="checked" id="ckeckebox" name="checked"/>
 						<span>同意<a href="#">《多边形论坛服务条款》</a></span>
 					</div>
 					
-					<input type="button" value="注册" class="submit" id="submit-email" />
+					<input type="button" value="注册" class="submit" id="submit-email"/>
 					<p class="reg-note">已有账号，现在<a href="#" class="reglogBtn">登陆</a></p>
 				</form>
 				</div>
@@ -491,98 +491,21 @@
 				<h3>登陆</h3>
 				<form>
 					<label>账号</label>
-					<input type="text" class="text" placeholder="请输入用户名、邮箱或者手机号"/>
+					<input type="text" class="text" id="account" placeholder="请输入用户名、邮箱或者手机号"/>
 					<label>密码</label>
-					<input type="password" class="text"  placeholder="请输入您的注册密码"/>
+					<input type="password" class="text" id="pass"  placeholder="请输入您的注册密码"/>
 					<label>验证码</label>
-					<input type="text" class="text" style="width: 140px;"/>
-					<div class="box">
+					<input type="text" class="text" id="yzm" style="width: 120px; float: left;"/>
+					<div class="code_img"><img src="../include/common/code.php" onclick="this.src='../include/common/code.php?tm='+Math.random()"/></div>
+					<div class="box" style="clear: both;">
 						<input type="checkbox" /><span>记住账号</span>
 					</div>
-					<input type="submit" class="submit" value="登陆" />
+					<input type="button" class="submit" id="login"  value="登陆" />
 					
 				</form>
 			</div>
 			<script src="../dist/js/app.js"></script>
-			<script src="../jquery-1.11.1.min.js"></script>
-			<script>
-				$(function(){
-					/* banner */
-					var a=0;
-					var b=0;
-					var timer=null;
-					var aBtn=true;
-					var len=$(".banner .bd ul li").length;
-					$(".banner .bd ul li").eq(a).css("left","0");
-					timer=setInterval(autoPlay,5000);
-					$(".banner .hd ul li").hover(function(){
-						
-						if(aBtn){
-							b=$(this).index();
-							aBtn=false;
-							if(a>b){
-								play("-660px","660px");
-							}else if(a<b){
-								play("660px","-660px");
-							}else{
-								aBtn=true;
-								return false;
-							}
-						}
-					},function(){})
-					$(".banner .prev").click(function(){
-						if(aBtn){
-							aBtn=false;
-							b=a-1;
-							if(b>=len){
-							b=0;
-						}else if(b<0){
-							b=len-1;
-						}
-						play("-660px","660px");
-						}
-						
-					});
-					$(".banner .next").click(function(){
-						autoPlay();
-					})
-					function autoPlay(){
-						if(aBtn){
-							aBtn=false;
-							b=a+1;
-							if(b>=len){
-							b=0;
-						}else if(b<0){
-							b=len-1;
-						}
-						play("660px","-660px");
-						}
-						
-					}
-					$(".banner .bd").hover(function(){
-						clearInterval(timer)
-					},function(){
-						timer=setInterval(autoPlay,5000);
-					})
-					function play(x1,x2){
-						
-						$(".banner .bd ul li").css("left","-660px");
-						$(".banner .bd ul li").eq(a).css("left","0px");
-						$(".banner .bd ul li").eq(b).css("left",x1);
-						$(".banner .hd ul li").eq(b).addClass("active").siblings().removeClass("active");
-						$(".banner .bd ul li").eq(a).animate({"left":x2},200);
-						$(".banner .bd ul li").eq(b).animate({"left":"0px"},200,function(){
-							a=b;
-						aBtn=true;
-						});
-					}
-					/* 选项卡 */
-					$(".lastNews .hd ul li").click(function(){
-						$(this).addClass("active").siblings().removeClass("active");
-						$(".lastNews").find(".bd ul").eq($(this).index()).fadeIn().siblings().fadeOut();
-					})
-				})
-			</script>
+			
 	</body>
 	
 </html>

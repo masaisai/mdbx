@@ -1,12 +1,21 @@
-<?php
 
-?>
 <div class="head">
 				<div class="topArea">
 					<div class="middle">
 					<p class="topWord">欢迎访问多边形论坛！</p>
 					<div class="topNav">
-						<a href="javascript:;" class="loginBtn" title="登陆">登陆</a><a href="javascript:;" class="registerBtn" title="注册">注册</a><a href="#" title="设为首页">设为首页</a><a href="javascript:;" title="加入收藏" onclick="alert('请按Ctrl+D加入收藏！')">加入收藏</a></div></div>
+						<span id="headuser">
+							<?php
+							
+								if(isset($_COOKIE['username'])&&$_COOKIE['status']==0){
+									echo '<a href="#">'.$_COOKIE['username'].'</a><i style="color:red;">未激活</i><a href="#">退出</a>';
+								}else if(isset($_COOKIE['username'])&&$_COOKIE['status']!=0){
+									echo '<a href="#" style="position:relative">'.$_COOKIE['username'].'</a><div class="usermessage"><a href="#">个人信息</a><a href="#">设置</a><a href="#">退出</a></div>';
+								}else{
+									echo '<a href="javascript:;" class="loginBtn" title="登陆">登陆</a><a href="javascript:;" class="registerBtn" title="注册">注册</a>';
+								}
+								?>
+							</span><a href="#" title="设为首页">设为首页</a><a href="javascript:;" title="加入收藏" onclick="alert('请按Ctrl+D加入收藏！')">加入收藏</a></div></div>
 				</div>
 				<div class="topMain">
 					<div class="middle">
